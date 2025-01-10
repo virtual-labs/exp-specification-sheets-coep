@@ -2,38 +2,138 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the primary purpose of a specification sheet for an instrument in a process plant?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+         "a": "To provide installation instructions",
+        "b": "To specify the instrument's performance requirements",
+        "c": "To provide maintenance schedules",
+        "d": "To document the instrument's calibration history"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
+      
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which of the following is typically included in a specification sheet for a temperature transmitter?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Only the instrument's model number and manufacturer",
+        "b": "The instrument's range, accuracy, and output signal",
+        "c": "The instrument's power supply requirements and wiring diagram",
+        "d": "The instrument's material of construction and weight"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the purpose of specifying the instrument's accuracy in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is calibrated correctly",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's output signal",
+        "d": "To ensure the instrument meets the required performance standards"
       },
-      "correctAnswer": "c",
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	{
+      "question": "Which of the following is typically included in a specification sheet for a flow meter?",
+      "answers": {
+        "a": "Only the instrument's model number and manufacturer",
+        "b": "The instrument's range, accuracy, and output signal",
+        "c": "The instrument's piping requirements and installation instructions",
+        "d": "The instrument's material of construction and weight"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the purpose of specifying the instrument's output signal in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is compatible with the control system",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's power supply requirements",
+        "d": "To ensure the instrument meets the required performance standards"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which of the following is typically included in a specification sheet for a pressure transmitter?",
+      "answers": {
+        "a": "Only the instrument's model number and manufacturer",
+        "b": "The instrument's range, accuracy, and output signal",
+        "c": "The instrument's material of construction and weight",
+        "d": "The instrument's calibration history and maintenance schedules"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the purpose of specifying the instrument's power supply requirements in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is compatible with the control system",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's output signal",
+        "d": "To ensure the instrument operates correctly and safely"
+      },
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which of the following is typically included in a specification sheet for a level transmitter?",
+      "answers": {
+        "a": "Only the instrument's model number and manufacturer",
+        "b": "The instrument's range, accuracy, and output signal",
+        "c": "The instrument's material of construction and weight",
+        "d": "The instrument's calibration history and maintenance schedules"
+      },
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "What is the purpose of specifying the instrument's environmental requirements in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is compatible with the control system",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's output signal",
+        "d": "To ensure the instrument operates correctly and safely in the process environment"
+      },
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	
+	
+	{
+      "question": "Which of the following is typically included in a specification sheet for an analyzer?",
+      "answers": {
+        "a": "Only the instrument's model number and manufacturer",
+        "b": "The instrument's range, accuracy, and output signal",
+        "c": "The instrument's material of construction and weight",
+        "d": "The instrument's calibration history, maintenance schedules, and sample preparation requirements"
+      },
+     
+      "correctAnswer": "d",
       "difficulty": "beginner"
     }
+  
+  
+  
+  
+  
+  
+  
   ]
 }
