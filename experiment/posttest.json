@@ -2,38 +2,99 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the primary consideration when selecting an instrument for a process plant application?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+         "a": "Cost",
+        "b": "Accuracy",
+        "c": "Reliability",
+        "d": "Ease of installation"
+		
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
+      
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which of the following is a consideration when selecting a material for an instrument's construction in a process plant application?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Cost",
+        "b": "Corrosion resistance",
+        "c": "Weight",
+        "d": "Aesthetics"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+     
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the purpose of specifying the instrument's range in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is calibrated correctly",
+        "b": "To determine the instrument's accuracy",
+        "c": "To specify the instrument's output signal",
+        "d": "To ensure the instrument can measure the process variable accurately"
       },
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	{
+      "question": "What is the purpose of specifying the instrument's output signal in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is compatible with the control system",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's power supply requirements",
+        "d": "To ensure the instrument meets the required performance standards"
+      },
+     
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which of the following is a benefit of preparing a specification sheet for an instrument in a process plant application?",
+      "answers": {
+        "a": " It ensures the instrument is installed correctly",
+        "b": "It ensures the instrument is calibrated correctly",
+        "c": "It ensures the instrument meets the required performance standards",
+        "d": "It reduces the cost of instrument maintenance"
+      },
+     
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+  
+  {
+      "question": "What is the purpose of specifying the instrument's environmental requirements in a specification sheet?",
+      "answers": {
+        "a": "To ensure the instrument is compatible with the control system",
+        "b": "To determine the instrument's range",
+        "c": "To specify the instrument's output signal",
+        "d": "To ensure the instrument operates correctly and safely in the process environment"
+      },
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "Which of the following is a consideration when selecting an instrument for a process plant application?",
+      "answers": {
+        "a": " Cost",
+        "b": "Accuracy ",
+        "c": " Reliability ",
+        "d": "All mentioned"
+      },
+     
+      "correctAnswer": "d",
+      "difficulty": "beginner"
     }
+	
+	
+  
+  
+  
+  
+  
   ]
 }
