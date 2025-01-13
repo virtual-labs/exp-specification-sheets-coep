@@ -1,6 +1,6 @@
 # Aim 
 
-Prepare the specification sheets for the instruments identified in the P& I diagram
+Prepare the specification sheets for the instruments identified in the P & I diagram
 
 ## Objectives  
 
