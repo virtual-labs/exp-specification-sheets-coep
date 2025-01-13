@@ -1,4 +1,5 @@
 ## Theory :
+
 An instrument specification is a high-level document that provides a general overview of the instrument and its capabilities, whereas an instrument datasheet is a detailed document that provides specific information about the instrument's design, materials, and operating parameters. An instrument specification sheet is a document that gives the technical details of an instrument or device.
 
 A datasheet will tell you everything you need to know about the instrument’s features and technical specifications. The specification sheet contains considerably more detailed information that is tailored to the application.
@@ -10,8 +11,7 @@ After technical and economic considerations, the instrument is purchased. The ve
 
 Specification sheets and vendor data are saved in a library or document control room for construction, operation, and maintenance to be used for further reference. Based on your work place viz. either working with a contractor, or with a consultant, or even with a client the importance of each parameter changes and in some cases some data points becomes more relevant. These sheets are also used while inspection, installation, and commissioning. 
 
-Specification sheet lists general information about the instrument, such as its
- 
+ Specification sheet lists general information about the instrument, such as its
 -	Tag number
 -	Product name and Model Number: To be included after market survey
 -	Service description and its intended use: Like steam/water/pulp etc.
