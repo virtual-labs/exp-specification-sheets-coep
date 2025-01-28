@@ -1,5 +1,3 @@
-## Reference
-
 1. International Society of Automation (ISA). (2018). ISA-20-1981: Specification Forms for Instrumentation : Primary Elements and Devices. ISA.
 
 2. American National Standards Institute (ANSI). (2019). ANSI/ISA-75.01.01-2019 : Flow Equations for Sizing Control Valves. ANSI.
