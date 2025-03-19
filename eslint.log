@@ -1,0 +1,9 @@
+
+/home/runner/work/exp-specification-sheets-coep/exp-specification-sheets-coep/experiment/simulation/js/specification1.js
+    2:11  warning  'functionCall' is defined but never used      no-unused-vars
+    4:7   warning  'stdtags' is assigned a value but never used  no-unused-vars
+  275:1   warning  '$' is not defined                            no-undef
+  292:5   warning  'mounting' is already defined                 no-redeclare
+
+✖ 4 problems (0 errors, 4 warnings)
+
