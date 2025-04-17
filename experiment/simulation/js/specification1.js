@@ -1,10 +1,25 @@
 
-	function functionCall()  {
+let attempts = 0;
+const maxAttempts = 3;
+const validKeyNumbers = ["PSHH_1", "PSHH_2", "PSLL_1", "PSLL_2"];
+const correctValues = {
+	mounting:"Top",
+    service: "Process Liquid",
+    quantity: "4",
+    enclosure: "IP65",
+    type: "Bellows actuated",
+    elementMaterial: "316SS",
+    bodyMaterial: "316SS",
+    wettedProcessConnection: "316SS",
+     mounting:"Top"
+};
+
+function functionCall()  {
 		
-		let stdtags = ["PSHH_1", "PSLL_1","PSLL_2", "PSHH_2"];
+		
 let tags = ["LSL_1", "LSH_1", "PSHH_1", "PSLL_1", "TSHH_1", "PSLL_2", "PSHH_2"];
 
-var services = ["Water", "Steam", "Process Liquid"];
+var services = ["water", "Steam", "Process Liquid"];
 var mounting=["Bottom","Top"];
 var quntity=["4","5","6","7"]; 
 var enclosure=[ "IP65","IP67","IP68"];
@@ -14,8 +29,9 @@ var wetMaterial=["MS","CS","304SS","316SS"];
 var wetProcessMaterial=["MS","CS","304SS","316SS"]; 
 let str=` 
 
-<div class="container mt-4">
-        <table class="table table-bordered table-hover" style="    margin-bottom: 100px;">
+<div class="container mt-4 step1" >
+	<h3><center style="margin-bottom:10px;">PRESSURE SWITCH TECHNICAL SPECIFICATIONS</center></h3>
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px;    border-width: 3px;border-color: #343a40;">
             <thead class="table-light">
                 <tr>
                     <th>#</th>
@@ -27,30 +43,31 @@ let str=`
             <tbody>
                 <tr><td rowspan="9"><b>GENERAL</b></td><td>1</td><td>Tag Number</td>
                 <td> <select id="stdTagsDropdown" class="form-select">
-				<option value="">Select a Tag</option>
+				<option value="">----------------Select a Tag-------------------</option>
 				</select></td></tr>
                 <tr><td>2</td><td>Service</td>
 				 <td> <select id="ServiceDropdown" class="form-select">
-				<option value="">Select a Service</option>
+				<option value="">----------------Select a Service----------------</option>
 				</select></td>
 				</tr>
                 <tr><td>3</td><td>Location</td><td><input type="text" class="form-control" id="location" placeholder="" name=""></td>
                  </tr>
                 <tr><td>4</td><td>Mounting</td>
                  <td> <select id="mountingDropdown" class="form-select">
-				<option value="">Select a Mounting</option>
+				<option value="">-----------------Select a Mounting----------------</option>
+				
 				</select></td>
                 </tr>
                 <tr><td>5</td><td>Quantity</td>
                 <td> <select id="quantityDropdown" class="form-select">
-				<option value="">Select a Quantity</option>
+				<option value="">---------------Select a Quantity--------------</option>
 				</select></td>
                 </tr>
                 <tr><td>6</td><td>Area Classification</td><td><input type="text" class="form-control" id="areaClass" placeholder="" name=""></td></tr>
                 <tr><td>7</td><td>Certification</td><td><input type="text" class="form-control" id="certification" placeholder="" name=""></td></tr>
                 <tr><td>8</td><td>Enclosure</td>
                  <td> <select id="enclosureDropdown" class="form-select">
-				<option value="">Select a Enclosure</option>
+				<option value="">---------------Select a Enclosure-------------</option>
 				</select></td>
                 </tr>
                 <tr><td>9</td><td>Pipe Line Number</td><td><input type="text" class="form-control" id="pipeLine" placeholder="" name=""></td></td></tr>
@@ -60,14 +77,14 @@ let str=`
                 <td>10</td>
                 <td>Fluid | Fluid State</td>
                 <td ><select name="Fluid" id="Fluid" class="form-select" style="margin-bottom:10px">
-                <option value="0">Select Fluid</option>
+                <option value="0">--------------Select Fluid-----------------</option>
 				  <option value="1">Water</option>
 				  <option value="2">Milk</option>
 				  <option value="3">Milk powder</option>
 				  <option value="4">Air</option>
 				</select>
 				<select name="fluidState" id="fluidState" class="form-select">
-                <option value="0">Select Fluid State</option>
+                <option value="0">----------------Select Fluid State-------------------</option>
 				  <option value="1">Liquid</option>
 				  <option value="2">Mist</option>
 				  <option value="3">Gaseous</option>
@@ -80,13 +97,13 @@ let str=`
                 <td >Oper. Pressure  | Oper. Temperature</td>
                 <td>
                 <select name="OperPressure" id="Operpressure" class="form-select" style="margin-bottom:10px">
-                  <option value="0">Select oper Pressure</option>
+                  <option value="0">-----------------Select oper Pressure----------------</option>
 				  <option value="1">0.1 Kg /cm<sup>2</sup>(g)</option>
 				  <option value="2">0.20 Kg /cm<sup>2</sup>(g)</option>
 				  <option value="3">3.0 Kg /cm<sup>2</sup>(g)</option>
 				</select>
 				  <select name="OperTemperature" id="OperTemperature" class="form-select">
-                  <option value="0">Select oper Temperature</option>
+                  <option value="0">----------------Select oper Temperature---------------</option>
 				  <option value="1">20 Deg &degC</option>
 				  <option value="2">80 Deg &degC</option>
 				  <option value="3">50 Deg &degC</option>
@@ -98,14 +115,14 @@ let str=`
                 <td>Design Pressure | Design. Temperature</td>
                 <td>
                  <select name="designPressure" id="designPressure" class="form-select"  style="margin-bottom:10px">
-                  <option value="0">Select Design Pressure</option>
+                  <option value="0">----------------Select Design Pressure----------------</option>
 				  <option value="1">0.15 Kg/cm²(g)</option>
 				  <option value="2">0.40 Kg/cm²(g)</option>
 				  <option value="3">6 Kg/cm²(g)</option>
 				</select>
               
                 <select name="designTemperature" id="designTemperature" class="form-select">
-                  <option value="0">Select Design Temperature</option>
+                  <option value="0">----------------Select Design Temperature----------------</option>
 				  <option value="1"> 40 Deg &degC</option>
 				  <option value="2"> 60 Deg &degC</option>
 				  <option value="3"> 75 Deg &degC</option>
@@ -117,21 +134,21 @@ let str=`
                 
                 <tr><td rowspan="7"><b>ELEMENT</b></td><td>14</td><td>Type</td>
                 <td> <select id="typeDropdown" class="form-select">
-				<option value="">Select a Type </option>
+				<option value="">----------------Select a Type---------------- </option>
 				</select></td>
                 </tr>
                 <tr><td>15</td><td>Element Material | Wetted Body material</td>
                  <td> <select id="elementDropdown" class="form-select">
-				<option value="">Select a Element Material </option>
+				<option value="">------------------Select a Element Material-------------------- </option>
 				</select>
 				<select id="wetBodyDropdown" class="form-select" style="margin-top:5px;">
-				<option value="">Select a Wetted Body material</option>
+				<option value="">----------------Select a Wetted Body material------------------</option>
 				</select>
 				</td>
 				</tr>
                 <tr><td>16</td><td>Wetted Process Connection Material</td>
 				<td> <select id="wetProcessDropdown" class="form-select">
-				<option value="">Select a Wetted Process Connection Material</option>
+				<option value="0">-----------------Select a Wetted Process Connection Material------------------</option>
 				</select>
 				</td>
 				</tr>
@@ -139,7 +156,7 @@ let str=`
                
                 <td> 
                 <select id="processConnection" class="form-select">
-				<option value="0">Select Process Connection</option>
+				<option value="0">-----------------Select Process Connection----------------</option>
 				  <option value="1"> ½” NPTF(F)</option>
 				  <option value="2"> Weld neck</option>
 				  <option value="3"> Special food grade connector</option>
@@ -151,27 +168,42 @@ let str=`
                 <tr><td>18</td><td>Orientation</td>
                 <td>
                  <select id="Orientation" class="form-select">
-				<option value="0">Select Orientation</option>
+				<option value="0">-------------------Select Orientation----------------</option>
 				  <option value="1"> Bottom mounted</option>
 				  <option value="2"> side mounted</option>
 				</select>
                 </td></tr>
                 <tr><td>19</td><td>Pressure Rating</td>
                 <td>
-                <select id="Orientation" class="form-select">
-                <option value="0">Select Pressure Rating</option>
+                <select id="PressureRating" class="form-select">
+                <option value="0">------------------Select Pressure Rating----------------</option>
 				  <option value="1">8.0 Kg/cm²(g)</option>
 				  <option value="2">1.0 Kg/cm²(g)</option>
-				   <option value="2">1.2 Kg/cm²(g)</option>
+				   <option value="3">1.2 Kg/cm²(g)</option>
 				</select>
                
                 </td></tr>
-                <tr><td>20</td><td>Enclosure</td><td>IP 65/IP67/IP68</td></tr>
+                <tr><td>20</td><td>Enclosure</td>
+                <td>
+                 <select id="enclosure" class="form-select">
+                <option value="0">------------------Select Enclosure------------------</option>
+				  <option value="1"> IP65</option>
+				  <option value="2">IP67</option>
+				   <option value="3">IP68</option>
+				</select>
+               </td></tr>
                 
                 <tr><td rowspan="10"><b>SWITCH</b></td><td>21</td><td>Type</td><td>Auto reset Micro-switch(Form C)</td></tr>
                 <tr><td>22</td><td>Contact Config.</td><td>2 SPDT</td></tr>
                 <tr><td>23</td><td>Contact Voltage</td><td>220 V DC</td></tr>
-                <tr><td>24</td><td>On Measurement Increase Switch</td><td>Closes/Opens</td></tr>
+                <tr><td>24</td><td>On Measurement Increase Switch</td><td>
+                 <select id="increaseSwitch" class="form-select">
+                <option value="0">------------------Select on measurement increase switch------------------</option>
+				  <option value="1">  Closes</option>
+				  <option value="2">Opens</option>
+				  
+				</select>
+             </td></tr>
                 <tr><td>25</td><td>Set Point 1</td><td>0.4 Kg/cm²(g)</td></tr>
                 <tr><td>26</td><td>Instrument Range</td><td>0.1 to 1 Kg/cm²</td></tr>
                 <tr><td>27</td><td>Conduit Connection Size</td><td>½” NPT (F)</td></tr>
@@ -184,8 +216,15 @@ let str=`
                 <tr><td>33</td><td>Diaphragm Material</td><td>SS 316</td></tr>
                 <tr><td>34</td><td>Housing Material</td><td>SS 316</td></tr>
                 <tr><td>35</td><td>Fill Liquid</td><td>Not required</td></tr>
-                <tr><td>36</td><td>Capillary Material</td><td>NA</td></tr>
-                <tr><td>37</td><td>Capillary Type</td><td>NA</td></tr>
+                <tr><td>36</td><td>Capillary Material</td>
+                <td>
+                <input type="text" class="form-control" id="capillaryMaterial" placeholder="" name="">
+                </td></tr>
+                <tr><td>37</td><td>Capillary Type | Capillary Length</td><td>
+                <input type="text" class="form-control" id="capillaryType" placeholder="" name="">
+                <input type="text" class="form-control" id="capillaryLength" placeholder="" name="">
+                
+                </td></tr>
                 <tr><td>38</td><td>Flushing Connection</td><td>YES</td></tr>
                 
                 <tr><td rowspan="5"><b>OPTIONS</b></td><td>39</td><td>Integral Meter</td><td>NA</td></tr>
@@ -197,40 +236,63 @@ let str=`
                 <tr><td rowspan="2"><b>COMMUNICATION</b></td><td>44</td><td>Communication with</td><td>LCP</td></tr>
                 <tr><td>45</td><td>Internal Diagnostics</td><td>NA</td></tr>
                 
-                <tr><td rowspan="3">PURCHASE</td><td>46</td><td>Manufacturer</td><td>Jdbls / Switzer / Boumer / GE/Rockwell</td></tr>
+                <tr><td rowspan="3"><b>PURCHASE</b></td><td>46</td><td>Manufacturer</td>
+                <td> 
+                 <select id="Manufacturer" class="form-select">
+                <option value="0">--------------Select Manufacturer----------------</option>
+				  <option value="1"> Jdbls</option>
+				  <option value="2">Switzer</option>
+				   <option value="3">Boumer</option>
+				    <option value="4">GE</option>
+				    <option value="5">Rockwell</option>
+				</select>
+                
+                
+                </td>
+                
+                </tr>
                 <tr><td>47</td><td >Model</td><td>Later*</td></tr>
                  <tr><td>48</td><td >Serial Number</td><td>Later*</td></tr>
             </tbody>
         </table>
+         <button class="btn btn-success " id="submitBtn"  data-bs-toggle="modal" data-bs-target="#myModal" >VERIFY</button>
+         <br>
+          
+          
+          
+          
+	   <!-- The Modal -->
+	<div class="modal" id="myModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header modalHeader" >
+	        <h4 class="modal-title">Message Box</h4>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body" id="modalBody">
+	        Modal body..
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	      </div>
+	
+	    </div>
+	  </div>
+	</div>
+
+    
     </div>
-   <!-- <div class="container mt-4">
-        <table>
-            <tr>
-                <td>48</td>
-                <td>Serial Number</td>
-                <td>Later*</td>
-            </tr>
-        </table>
-        
-        <table class="mt-3">
-            <tr>
-                <td>Prep</td>
-                <td>54</td>
-                <td>Apr</td>
-                <td>Rev/Date</td>
-                <td>Revision History</td>
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td>Initial submission</td>
-            </tr>
-        </table>
-        
-        <h3 class="text-center mt-3">INSTRUMENT SPECIFICATION</h3>
-        <h4 class="text-center">Pressure Switch</h4>
-        <p class="text-center">Sheet 1/2</p>
-        
-        <div class="notes">
+   
+       
+    <div class="container step3" style="margin-top: 50px;">
+    <div class="row" style="border-style: solid;">
+     <div class="notes">
             <h5>Notes:</h5>
             <ol>
                 <li>Instrument tags shall be permanently attached to the device OR the tags shall be fastened to the instrument with stainless steel wire.</li>
@@ -251,28 +313,194 @@ let str=`
             </ol>
         </div>
         
-        <table class="mt-3">
+    </div>
+      <div class="container rev1 step2" style="margin-top: 40px;">
+        <table >
             <tr>
-                <td>Prep</td>
-                <td>Chk</td>
-                <td>Apr</td>
-                <td>Rev/Date</td>
-                <td>Revision History</td>
+                <th>Prep</th>
+                <th>54</th>
+                <th>Apr</th>
+                <th>Rev/Date</th>
+                <th >Revision History</th>
+                <th rowspan="4">INSTRUMENT SPECIFICATION<br>(Pressure Switch)</th>
             </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td>Initial submission</td>
+             <tr>
+               <td><input type="text" id="nameInput1" placeholder=""></td>
+               <td><input type="text" id="nameInput2" placeholder=""></td>
+               <td><input type="text" id="nameInput3" placeholder=""></td>
+               <td><input type="text" id="nameInput4" placeholder=""></td>
+               <td>Initial submission</td>
             </tr>
+             <tr>
+               <td><input type="text" id="nameInput5" placeholder=""></td>
+               <td><input type="text" id="nameInput6" placeholder=""></td>
+               <td><input type="text" id="nameInput7" placeholder=""></td>
+               <td><input type="text" id="nameInput8" placeholder=""></td>
+               <td><input type="text" id="nameInput9" placeholder=""></td>
+            </tr>
+             <tr>
+               <td><input type="text" id="nameInput10" placeholder=""></td>
+               <td><input type="text" id="nameInput11" placeholder=""></td>
+               <td><input type="text" id="nameInput12" placeholder=""></td>
+               <td><input type="text" id="nameInput13" placeholder=""></td>
+               <td><input type="text" id="nameInput14" placeholder=""></td>
+            </tr>
+            
         </table>
+            <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px">NEXT</button>
+      <button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
+      <button class="btn btn-success " id="submitBtn1"  data-bs-toggle="modal" data-bs-target="#myModal" style="float: right; margin-right: 15px;margin-top: 10px; background-color: teal;">VERIFY</button>
         
-        <h3 class="text-center mt-3">INSTRUMENT SPECIFICATION</h3>
-        <h4 class="text-center">Pressure Switch</h4>
-        <p class="text-center">Sheet 2/2</p>
-    </div>-->
-    
-    
+   
+         <br> 
+    </div>
+     
+     </div>   
+
     `;
 $("#main-div").html(str);
+$("#next").click(function(){
+	transmitter();
+  });
+
+document.getElementById("submitBtn").addEventListener("click", function () {
+    if (attempts >= maxAttempts) {
+        $("#modalBody").html("Maximum attempts reached!");
+        return;
+    }
+    
+    const keyNumber = $("#stdTagsDropdown").val();
+    const service = $("#ServiceDropdown").val();
+    const mounting = $("#mountingDropdown").val();
+    const quantity = $("#quantityDropdown").val();
+    const enclosure = $("#enclosureDropdown").val() ;
+    const type = $("#typeDropdown").val();
+    const elementMaterial = $("#elementDropdown").val();
+    const wetBody = $("#wetBodyDropdown").val();
+    const wetProcess = $("#wetProcessDropdown").val();
+    console.log("keyNumber"+keyNumber);
+    
+    console.log("validKeyNumbers "+validKeyNumbers);
+   
+//    const wettedProcessConnection = document.getElementById("wettedProcessConnection").value;
+
+    if (!keyNumber || !service || !quantity || !enclosure || !type || !elementMaterial || !wetBody || !wetProcess) {
+    	 $("#modalBody").html("Please fill in all fields.").css({ "color": "red" });
+        return;
+    }
+
+    if (!validKeyNumbers.includes(keyNumber)) {
+    	 $("#modalBody").html("Invalid tag").css({ "color": "red" });
+        return;
+    }
+
+    if (
+        service === correctValues.service &&
+        quantity === correctValues.quantity &&
+        enclosure === correctValues.enclosure &&
+        type === correctValues.type &&
+        elementMaterial === correctValues.elementMaterial &&
+        bodyMaterial === correctValues.bodyMaterial &&
+        wettedProcessConnection === correctValues.wettedProcessConnection
+    ) {
+    	 $("#modalBody").html("Correct!").css({ "color": "green" });
+    } else {
+        attempts++;
+//        $("#modalBody").html(` Correct Sheet is here`).css({ "color": "red" });
+        correctPressure();
+    }
+});
+let attemptCount = 0;
+
+$('#submitBtn1').click(function () {
+  let allFilled = true;
+
+  // Loop through all inputs inside the container
+  $('.rev1 input[type="text"]').each(function () {
+    if ($(this).val().trim() === "") {
+      allFilled = false;
+      $(this).css("border-bottom", "2px solid red"); // highlight empty input
+    } else {
+      $(this).css("border-bottom", "2px solid #333"); // reset style
+    }
+  });
+
+  if (!allFilled) {
+    attemptCount++;
+    let remainingAttempts = 3 - attemptCount;
+
+    $('#modalBody')
+      .html(
+        `Please fill in all fields. <br> Remaining Attempts: ${remainingAttempts}`
+      )
+      .css({
+        "color": "red",
+        "font-weight": "bold",
+        "text-align": "center"
+      });
+
+    if (attemptCount >= 3) {
+      $('#submitBtn1').prop("disabled", true);
+      $('#modalBody').html("Maximum attempts reached. Please reload the page.").css("color", "darkred");
+    }
+
+    return false; // prevent modal action
+  } else {
+    $('#modalBody').html("All fields are filled. You may proceed.").css("color", "green");
+    attemptCount = 0; // reset if successful
+  }
+});
+
+//document.getElementById('download').addEventListener('click', function () {
+//	  const element = document.querySelector('#main-div'); // Select the main container or use body
+//
+//	  html2canvas(element).then(canvas => {
+//	    const imgData = canvas.toDataURL('image/png');
+//	    const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+//	    const imgProps = pdf.getImageProperties(imgData);
+//	    const pdfWidth = pdf.internal.pageSize.getWidth();
+//	    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+//
+//	    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+//	    pdf.save("Pressure_Switch_Specification.pdf");
+//	  });
+//
+//	});
+document.getElementById('download').addEventListener('click', function () {
+	$("#next,#submitBtn1,#download,#submitBtn").prop("hidden",true);
+    const element = document.querySelector('#main-div');
+
+    html2canvas(element, { scale: 2 }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+      const imgWidth = pdfWidth;
+      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      // Add first page
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pdfHeight;
+
+      // Add remaining pages
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight;
+      }
+
+      pdf.save("Pressure_Switch_Specification.pdf");
+    });
+	$("#next,#submitBtn1,#download,#submitBtn").prop("hidden",false);
+  });
+
+	
 let tagsdropdown = document.getElementById("stdTagsDropdown");
 
 tags.forEach(tag => {
