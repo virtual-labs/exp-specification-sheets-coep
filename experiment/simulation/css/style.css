@@ -24,7 +24,43 @@
         }
         th {
             background-color: #f8f9fa;
+        }
+        .modalHeader{
+            background-color: teal;
+    color: #fff;
         } 
+        #modalBody{
+          
+    font-size: 20px;
+   font-weight: bold;
+    font-size: larger;
+        }
+        #nameInput1,#nameInput2,#nameInput3,#nameInput4,#nameInput5,
+        #nameInput6,#nameInput7,#nameInput8,#nameInput9,#nameInput10,
+        #nameInput11,#nameInput12, #nameInput13,#nameInput14{
+            border: none;
+    border-bottom: 1px solid #dee2e6;
+    outline: none;
+    padding: 5px 0;
+    width: 200px;
+    font-size: 16px;
+        }
+        
+        
+#submitBtn{
+	float:right;
+	margin-top:10px;
+	margin-bottom: 100px;
+	background-color:teal;
+}
+#download{
+	    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #821515;
+    border-color: #821515;
+}
+
 
  footer {
 	background: rgb(125,176,169);
