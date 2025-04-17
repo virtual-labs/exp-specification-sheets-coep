@@ -1,3 +1,5 @@
+## Theory
+
 An instrument specification is a high-level document that provides a general overview of the instrument and its capabilities, whereas an instrument 
 datasheet is a detailed document that provides specific information about the instrument's design, materials, and operating parameters. An instrument 
 specification sheet is a document that gives the technical details of an instrument or device.
