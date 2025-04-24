@@ -6,9 +6,61 @@ function SinglePhase()
 	<img src="images/230V_single_phase.jpg" class="img-fluid" style="width:100%;">
 	
 	</div>
-<!--	<button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>-->
+	<!--<button class="btn btn-success " id="pdfDownload" style="margin-right:10px" >PDF DOWNLOAD</button>-->
 	`;
 	$("#main-div").html(str);
+	
+	
+	function generatePDF() {
+	    // Select the div by its ID
+	    const element = document.querySelector(".step1");
+	 
+	    // Use html2canvas to capture the element as a canvas
+	    html2canvas(element, {
+	        scale: 3, // Higher scale for better resolution
+	        useCORS: true // Handle cross-origin resources
+	    }).then(function (canvas) {
+	        // Initialize the PDF document in landscape mode ('l') and A4 size
+	        const pdf = new jspdf.jsPDF('l', 'mm', 'a4');
+	        // Get PDF page dimensions
+	        const pdfWidth = pdf.internal.pageSize.getWidth();
+	        const pdfHeight = pdf.internal.pageSize.getHeight();
+	 
+	        // Calculate the scaled dimensions to fit the content on one page
+	        const canvasAspectRatio = canvas.width / canvas.height;
+	        const pdfAspectRatio = pdfWidth / pdfHeight;
+	 
+	        let imgWidth, imgHeight;
+	        if (canvasAspectRatio > pdfAspectRatio) {
+	            // Scale by width
+	            imgWidth = pdfWidth;
+	            imgHeight = pdfWidth / canvasAspectRatio;
+	        } else {
+	            // Scale by height
+	            imgHeight = pdfHeight;
+	            imgWidth = pdfHeight * canvasAspectRatio;
+	        }
+	 
+	        // Convert the canvas to image data in PNG format
+	        const imgData = canvas.toDataURL("image/png", 1.0); // No compression
+	 
+	        // Add the image to the PDF (centered if scaled down)
+	        const xOffset = (pdfWidth - imgWidth) / 2;
+	        const yOffset = (pdfHeight - imgHeight) / 2;
+	 
+	        pdf.addImage(imgData, 'PNG', xOffset, yOffset, imgWidth, imgHeight);
+	 
+	        // Save the generated PDF
+	        pdf.save("Single_phase_0.2.pdf");
+	    });
+	}
+	 
+	// Set up the button click event to generate the PDF
+	$("#pdfDownload").on("click", function () {
+	    generatePDF();
+	});
+	
+	
 //	document.getElementById('download').addEventListener('click', function () {
 //		$("#download").prop("hidden",true);
 //	    const element = document.querySelector('#main-div');
