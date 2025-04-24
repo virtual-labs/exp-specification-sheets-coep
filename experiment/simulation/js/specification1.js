@@ -9,9 +9,9 @@ const correctValues = {
     enclosure: "IP65",
     type: "Bellows actuated",
     elementMaterial: "316SS",
-    bodyMaterial: "316SS",
-    wettedProcessConnection: "316SS",
-     mounting:"Top"
+    wetMaterial: "316SS",
+    wettedProcessConnection: "316SS"
+     
 };
 
 function functionCall()  {
@@ -31,7 +31,8 @@ let str=`
 
 <div class="container mt-4 step1" >
 	<h3><center style="margin-bottom:10px;">PRESSURE SWITCH TECHNICAL SPECIFICATIONS</center></h3>
-        <table class="table table-bordered table-hover" style="margin-bottom: 0px;    border-width: 3px;border-color: #343a40;">
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px;    border-width: 3px;border-color: #343a40;font-size: 15px;
+    font-weight: bold;">
             <thead class="table-light">
                 <tr>
                     <th>#</th>
@@ -98,15 +99,16 @@ let str=`
                 <td>
                 <select name="OperPressure" id="Operpressure" class="form-select" style="margin-bottom:10px">
                   <option value="0">-----------------Select oper Pressure----------------</option>
-				  <option value="1">0.1 Kg /cm<sup>2</sup>(g)</option>
-				  <option value="2">0.20 Kg /cm<sup>2</sup>(g)</option>
-				  <option value="3">3.0 Kg /cm<sup>2</sup>(g)</option>
+				  <option value="1">0.1 Kg /cm²(g)</option>
+				  <option value="2">0.20 Kg /cm²(g)</option>
+				  <option value="3">3.0 Kg /cm²(g)</option>
 				</select>
 				  <select name="OperTemperature" id="OperTemperature" class="form-select">
                   <option value="0">----------------Select oper Temperature---------------</option>
 				  <option value="1">20 Deg &degC</option>
-				  <option value="2">80 Deg &degC</option>
 				  <option value="3">50 Deg &degC</option>
+				  <option value="2">80 Deg &degC</option>
+				  
 				</select>
                 </td>
                 </tr>
@@ -118,7 +120,7 @@ let str=`
                   <option value="0">----------------Select Design Pressure----------------</option>
 				  <option value="1">0.15 Kg/cm²(g)</option>
 				  <option value="2">0.40 Kg/cm²(g)</option>
-				  <option value="3">6 Kg/cm²(g)</option>
+				  <option value="3">0.6 Kg/cm²(g)</option>
 				</select>
               
                 <select name="designTemperature" id="designTemperature" class="form-select">
@@ -157,7 +159,7 @@ let str=`
                 <td> 
                 <select id="processConnection" class="form-select">
 				<option value="0">-----------------Select Process Connection----------------</option>
-				  <option value="1"> ½” NPTF(F)</option>
+				  <option value="1"> ½” NPT(F)</option>
 				  <option value="2"> Weld neck</option>
 				  <option value="3"> Special food grade connector</option>
 				</select>
@@ -221,7 +223,7 @@ let str=`
                 <input type="text" class="form-control" id="capillaryMaterial" placeholder="" name="">
                 </td></tr>
                 <tr><td>37</td><td>Capillary Type | Capillary Length</td><td>
-                <input type="text" class="form-control" id="capillaryType" placeholder="" name="">
+                <input type="text" class="form-control" id="capillaryType" placeholder="" name="" style="margin-bottom:5px;">
                 <input type="text" class="form-control" id="capillaryLength" placeholder="" name="">
                 
                 </td></tr>
@@ -290,8 +292,8 @@ let str=`
     </div>
    
        
-    <div class="container step3" style="margin-top: 50px;">
-    <div class="row" style="border-style: solid;">
+    <div class="container step3" style="margin-top: 50px;" hidden>
+    <div class="row" style="border-style: solid;font-weight: bold;">
      <div class="notes">
             <h5>Notes:</h5>
             <ol>
@@ -314,7 +316,7 @@ let str=`
         </div>
         
     </div>
-      <div class="container rev1 step2" style="margin-top: 40px;">
+      <div class="container rev1 step2" style="margin-top: 40px;" hidden>
         <table >
             <tr>
                 <th>Prep</th>
@@ -347,10 +349,34 @@ let str=`
             </tr>
             
         </table>
-            <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px">NEXT</button>
-      <button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
-      <button class="btn btn-success " id="submitBtn1"  data-bs-toggle="modal" data-bs-target="#myModal" style="float: right; margin-right: 15px;margin-top: 10px; background-color: teal;">VERIFY</button>
-        
+            <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" disabled>NEXT</button>
+      <button class="btn btn-success " id="download" style="margin-right:10px" disabled>PDF DOWNLOAD</button>
+      <button class="btn btn-success " id="submitBtn1"  data-bs-toggle="modal" data-bs-target="#myModal1" style="float: right; margin-right: 15px;margin-top: 10px; background-color: teal;">VERIFY</button>
+        <!-- The Modal -->
+	<div class="modal" id="myModal1">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header modalHeader" >
+	        <h4 class="modal-title">Message Box</h4>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body" id="modalBody1">
+	        Modal body..
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	      </div>
+	
+	    </div>
+	  </div>
+	</div>
+
    
          <br> 
     </div>
@@ -363,63 +389,121 @@ $("#next").click(function(){
 	transmitter();
   });
 
-document.getElementById("submitBtn").addEventListener("click", function () {
-    if (attempts >= maxAttempts) {
-        $("#modalBody").html("Maximum attempts reached!");
-        return;
-    }
-    
-    const keyNumber = $("#stdTagsDropdown").val();
-    const service = $("#ServiceDropdown").val();
-    const mounting = $("#mountingDropdown").val();
-    const quantity = $("#quantityDropdown").val();
-    const enclosure = $("#enclosureDropdown").val() ;
-    const type = $("#typeDropdown").val();
-    const elementMaterial = $("#elementDropdown").val();
-    const wetBody = $("#wetBodyDropdown").val();
-    const wetProcess = $("#wetProcessDropdown").val();
-    console.log("keyNumber"+keyNumber);
-    
-    console.log("validKeyNumbers "+validKeyNumbers);
-   
-//    const wettedProcessConnection = document.getElementById("wettedProcessConnection").value;
+var id=0;
+$('#submitBtn').click(function(){
+	  
+	  $("#modalBody").css("color", "brown");
+	
+	   
+	    const keyNumber = $("#stdTagsDropdown").val();
+	    const service = $("#ServiceDropdown").val();
+	    const mounting = $("#mountingDropdown").val();
+	    const quantity = $("#quantityDropdown").val();
+	    const enclosure = $("#enclosureDropdown").val() ;
+	    const type = $("#typeDropdown").val();
+	    const elementMaterial = $("#elementDropdown").val();
+	    
+	    
+	    const wetBody = $("#wetBodyDropdown").val();
+//	    const wetProcess = $("#elementDropdown").val();//element material
+	    const wettedProcessConnection = $("#wetProcessDropdown").val();
+	    console.log("keyNumber"+keyNumber);
+	    
+	    console.log("validKeyNumbers "+validKeyNumbers);
+	   
+	   
+	    
+	    if (!keyNumber || !service || !mounting|| !quantity || !enclosure || !type || !elementMaterial || !wetBody  || !wettedProcessConnection) {
+	    	 $("#modalBody").html(`Please complete all the required data on the sheet.`).css({ "color": "#a10f0f" });
+	       
+	    }
+	    else{
+		    	  if (!validKeyNumbers.includes(keyNumber)) {
+		 	    	 $("#modalBody").html("Selected tag is invalid .").css({ "color": "#a10f0f" });
+		 	        
+		 	      }
+				 else{
+		
+			  			if (id <= 3) {
+			  				 if (
+			  				        service === correctValues.service &&
+			  				        quantity === correctValues.quantity &&
+			  				        enclosure === correctValues.enclosure &&
+			  				        type === correctValues.type &&
+			  				        elementMaterial === correctValues.elementMaterial &&
+			  				      wetBody === correctValues.wetMaterial &&
+			  				        wettedProcessConnection === correctValues.wettedProcessConnection
+			  				    ) 
+			  				    {
+			  				    	 $("#modalBody").html("Correct sheet data now fill next sheet.").css({ "color": "green" });
+			  				    	$(".step3,.step2").prop("hidden",false);
+			  				    	$("#submitBtn").prop("disabled",true);
+			  				    }
+			  				
+			  				 else  {
+			  					$("#modalBody").html(`The data on the sheet is incorrect.`);
+			  					
+			  				}
+		
+			  		
+			  			} else if (id >= 4) {
+			  				
+			  				if (
+			  				        service === correctValues.service &&
+			  				        quantity === correctValues.quantity &&
+			  				        enclosure === correctValues.enclosure &&
+			  				        type === correctValues.type &&
+			  				        elementMaterial === correctValues.elementMaterial &&
+			  				      wetBody === correctValues.bodyMaterial &&
+			  				        wettedProcessConnection === correctValues.wettedProcessConnection
+			  				    ) 
+			  				    {
+			  				    	 $("#modalBody").html("Correct data now fill next sheet").css({ "color": "green" });
+			  				    	$(".step3,.step2").prop("hidden",false);
+			  				    	$("#submitBtn").prop("disabled",true);
+			  				    }
+			  				
+			  				 else  {
+//			  					
+			  					$('#myModal').modal('hide');   // Hide
+//
+			  			        $(".step3,.step2").prop("hidden", false);
+//			  			        $("#submitBtn").prop("disabled", true);
 
-    if (!keyNumber || !service || !quantity || !enclosure || !type || !elementMaterial || !wetBody || !wetProcess) {
-    	 $("#modalBody").html("Please fill in all fields.").css({ "color": "red" });
-        return;
-    }
-
-    if (!validKeyNumbers.includes(keyNumber)) {
-    	 $("#modalBody").html("Invalid tag").css({ "color": "red" });
-        return;
-    }
-
-    if (
-        service === correctValues.service &&
-        quantity === correctValues.quantity &&
-        enclosure === correctValues.enclosure &&
-        type === correctValues.type &&
-        elementMaterial === correctValues.elementMaterial &&
-        bodyMaterial === correctValues.bodyMaterial &&
-        wettedProcessConnection === correctValues.wettedProcessConnection
-    ) {
-    	 $("#modalBody").html("Correct!").css({ "color": "green" });
-    } else {
-        attempts++;
-//        $("#modalBody").html(` Correct Sheet is here`).css({ "color": "red" });
-        correctPressure();
-    }
+			  			        correctPressure(); // Call your correction logic here
+			  					
+			  				}
+			  			} 
+			  			id++;
+			    	  }
+	    } 
+	   
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+	  const modalElement = document.getElementById('myModal');
+	  if (modalElement) {
+	    const modal = new bootstrap.Modal(modalElement);
+	    modal.show();
+	  }
+	});
 let attemptCount = 0;
 
 $('#submitBtn1').click(function () {
+//	$('#myModal').modal('show');   // Hide
   let allFilled = true;
 
   // Loop through all inputs inside the container
   $('.rev1 input[type="text"]').each(function () {
     if ($(this).val().trim() === "") {
       allFilled = false;
-      $(this).css("border-bottom", "2px solid red"); // highlight empty input
+      $('#modalBody1').html(`Please fill in all fields. `  ).css({
+        "color": "#a10f0f",
+        "font-weight": "bold",
+        "text-align": "left"
+      });
+
+//      $(this).css("border-bottom", "2px solid #a10f0f"); // highlight empty input
     } else {
       $(this).css("border-bottom", "2px solid #333"); // reset style
     }
@@ -429,45 +513,24 @@ $('#submitBtn1').click(function () {
     attemptCount++;
     let remainingAttempts = 3 - attemptCount;
 
-    $('#modalBody')
-      .html(
-        `Please fill in all fields. <br> Remaining Attempts: ${remainingAttempts}`
-      )
-      .css({
-        "color": "red",
-        "font-weight": "bold",
-        "text-align": "center"
-      });
-
+    
     if (attemptCount >= 3) {
       $('#submitBtn1').prop("disabled", true);
-      $('#modalBody').html("Maximum attempts reached. Please reload the page.").css("color", "darkred");
+      $('#modalBody1').html("Maximum attempts reached. Please reload the page.").css("color", "darkred");
     }
 
     return false; // prevent modal action
   } else {
-    $('#modalBody').html("All fields are filled. You may proceed.").css("color", "green");
+	  $('#submitBtn,#submitBtn1').prop("disabled", true);
+	  $('#download').prop("disabled", false);
+    $('#modalBody1').html("All fields are filled. You may proceed.").css("color", "green");
     attemptCount = 0; // reset if successful
   }
 });
 
-//document.getElementById('download').addEventListener('click', function () {
-//	  const element = document.querySelector('#main-div'); // Select the main container or use body
-//
-//	  html2canvas(element).then(canvas => {
-//	    const imgData = canvas.toDataURL('image/png');
-//	    const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
-//	    const imgProps = pdf.getImageProperties(imgData);
-//	    const pdfWidth = pdf.internal.pageSize.getWidth();
-//	    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-//
-//	    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-//	    pdf.save("Pressure_Switch_Specification.pdf");
-//	  });
-//
-//	});
 document.getElementById('download').addEventListener('click', function () {
-	$("#next,#submitBtn1,#download,#submitBtn").prop("hidden",true);
+	$("#submitBtn1,#download,#submitBtn,#next").prop("hidden",true);
+	$("#next").prop("disabled",false);
     const element = document.querySelector('#main-div');
 
     html2canvas(element, { scale: 2 }).then(canvas => {
