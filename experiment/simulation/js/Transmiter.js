@@ -1,3 +1,5 @@
+var clickCountT=0;
+
 const correctValues1 = {
 	
     service: "Process Liquid",
@@ -29,6 +31,12 @@ const adjustableSpan1 = [0.2, 1, 1.5];
 const validKeyNumbers1 = ["PSHH_1", "PSHH_2", "PSLL_1", "PSLL_2"];
 function transmitter()
 {
+	
+	timerMasterJson.specification=$("#counter").text();
+		console.log(timerMasterJson);
+		seconds = 0;
+		  updateCounter();
+	
 	let tags = ["LSL_1", "LSH_1", "PSHH_1", "PSLL_1", "TSHH_1", "PSLL_2", "PSHH_2"];
 	var services1 = ["water", "Steam", "Process Liquid"];
 let str=`
@@ -183,9 +191,9 @@ let str=`
 			      <th>Adjustable Range</th>
 			         <td colspan="5">
 			       <select id="adjustableRange" class="form-select">
-                <option value="-1">------------------Select adjustable range----------------</option>
-				  <option value="0">0</option>
-				  <option value="1">1</option>
+                <option value="0">------------------Select adjustable range----------------</option>
+                <option value="1">0</option>
+				<option value="2">1</option>
 				   <option value="1.5">1.5</option>
 				</select>
 				</td>
@@ -230,7 +238,7 @@ let str=`
 			      <td colspan="5">
 			      <select id="accuracy" class="form-select">
                   <option value="0">------------------Select accuracy------------------</option>
-				  <option value="0.075">± 0.075% of span from 10:1 turn down</option>
+				  <option value="0.075">&plusmn;0.075% of span from 10:1 turn down</option>
 				  <option value="0.5">0.5% </option>
 				   
 				</select>
@@ -255,7 +263,7 @@ let str=`
 			    </tr>
 			    <tr>
 			       <th>Power Supply Effect</th>
-			      <td colspan="5">Less than ± 0.005% of calibrated span per volt</td>
+			      <td colspan="5">Less than &plusmn;0.005% of calibrated span per volt</td>
 			    </tr>
 			    <tr>
 			       <th>Electromagnetic Compatibility (EMC)</th>
@@ -368,14 +376,8 @@ Type of transmitter i.e., gauge pressure or absolute pressure shall be as per sp
         </div>
         
     </div>
-         <button class="btn btn-success " id="lastPage"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px">NEXT</button>
-	<button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
-             <button class="btn btn-success " id="submitBtn"  data-bs-toggle="modal" data-bs-target="#myModal" style="margin-right:10px">VERIFY</button>
-
-         <br>
-          
-          
-          
+        
+       
           
 	   <!-- The Modal -->
 	<div class="modal" id="myModal">
@@ -401,6 +403,7 @@ Type of transmitter i.e., gauge pressure or absolute pressure shall be as per sp
 	    </div>
 	  </div>
 	</div>
+	            <button class="btn btn-success " id="submitBtn"  data-bs-toggle="modal" data-bs-target="#myModal" style="margin-right:10px" >VERIFY</button>
 
     
     </div>
@@ -428,11 +431,10 @@ services1.forEach(tag => {
     servicesdropdown.appendChild(option);
 });
 
-$("#lastPage").click(function(){
-	SinglePhase();
-  });
+
 var id=0;
 $("#submitBtn").click(function(){
+	clickCountT++;
 	$("#modalBody").css("color", "brown");
 
 	const spec = $("#spec").val().trim();
@@ -504,12 +506,12 @@ $("#submitBtn").click(function(){
 		   return (str || "").toLowerCase().trim();
 	} 
 	
-//	function arraysEqual(userArray, correctArray) {
-//	    if (!Array.isArray(userArray) || !Array.isArray(correctArray)) return false;
-//	    if (userArray.length !== correctArray.length) return false;
-//
-//	    return userArray.every((val, i) => normalize(val) === normalize(correctArray[i]));
-//	}
+	function arraysEqual(userArray, correctArray) {
+	    if (!Array.isArray(userArray) || !Array.isArray(correctArray)) return false;
+	    if (userArray.length !== correctArray.length) return false;
+
+	    return userArray.every((val, i) => normalize(val) === normalize(correctArray[i]));
+	}
 	
 	
 //	if (!customer || !project || !plant || !unit) {
@@ -554,7 +556,9 @@ $("#submitBtn").click(function(){
 	        		) {
 	                $("#modalBody").html("Correct sheet data now download pdf").css({ "color": "green" });
 //	                $(".step3,.step2").prop("hidden", false);
-	                $("#submitBtn").prop("disabled", true);
+	                
+					$("#download,#lastPage").prop("disabled", false);
+					$("#submitBtn").prop("disabled", true);
 	            } else {
 	                $("#modalBody").html(`The data on the sheet is incorrect.`).css({ "color": "#a10f0f" });
 	            }
@@ -580,50 +584,21 @@ $("#submitBtn").click(function(){
 	        		) {
 	                $("#modalBody").html("Correct data now download pdf").css({ "color": "green" });
 //	                $(".step3,.step2").prop("hidden", false);
-	                $("#submitBtn").prop("disabled", true);
+$("#download,#lastPage").prop("disabled", false);
+					$("#submitBtn").prop("disabled", true);
 	            } else {
 	                $('#myModal').modal('hide');
 //	                $(".step3,.step2").prop("hidden", false);
 	                // Call correction logic here
-	                correctPressure(); 
+					$("#download,#lastPage").prop("disabled", false);
+										$("#submitBtn").prop("disabled", true);
+	                correctTransmitter(); 
 	            }
 	        }
 	        id++;
 	    }
 	}
   });
-document.getElementById('download').addEventListener('click', function () {
-	$("#submitBtn,#download,#next").prop("hidden",true);
-    const element = document.querySelector('#main-div');
 
-    html2canvas(element, { scale: 2 }).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-
-      const imgWidth = pdfWidth;
-      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      let heightLeft = imgHeight;
-      let position = 0;
-
-      // Add first page
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pdfHeight;
-
-      // Add remaining pages
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pdfHeight;
-      }
-
-      pdf.save("Pressure_Transmitter_Specification.pdf");
-    });
-    $("#next").prop("hidden",false);
-  });
 
 }
