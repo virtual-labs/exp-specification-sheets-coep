@@ -96,15 +96,15 @@ function correctPressure()
 		                <tr><td>24</td><td>On Measurement Increase Switch</td><td>
 		                 Opens
 		             </td></tr>
-		                <tr><td>25</td><td>Set Point 1</td><td>0.4 Kg/cm²(g)</td></tr>
-		                <tr><td>26</td><td>Instrument Range</td><td>0.1 to 1 Kg/cm²</td></tr>
-		                <tr><td>27</td><td>Conduit Connection Size</td><td>½” NPT (F)</td></tr>
+		                <tr><td>25</td><td>Set Point 1</td><td>0.4 Kg/cm&sup2;(g)</td></tr>
+		                <tr><td>26</td><td>Instrument Range</td><td>0.1 to 1 Kg/cm&sup2;</td></tr>
+		                <tr><td>27</td><td>Conduit Connection Size</td><td>1/2 Inch NPT (F)</td></tr>
 		                <tr><td>28</td><td>Output Signal</td><td>Potential free</td></tr>
 		                <tr><td>29</td><td>Deadband</td><td>Minimum</td></tr>
 		                <tr><td>30</td><td>Housing Material</td><td>Aluminum</td></tr>
 		                
 		                <tr><td rowspan="8"><b>DIAPHRAGM SEAL</b></td><td>31</td><td>Required</td><td>YES</td></tr>
-		                <tr><td>32</td><td>Process Connection Size</td><td>½” NPT (F)</td></tr>
+		                <tr><td>32</td><td>Process Connection Size</td><td>1/2 Inch NPT (F)</td></tr>
 		                <tr><td>33</td><td>Diaphragm Material</td><td>SS 316</td></tr>
 		                <tr><td>34</td><td>Housing Material</td><td>SS 316</td></tr>
 		                <tr><td>35</td><td>Fill Liquid</td><td>Not required</td></tr>
@@ -132,6 +132,47 @@ function correctPressure()
 		        </table>
 		        
 		    </div>
+<!--			<button class="btn btn-success " id="lastPage"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" >NEXT</button>
+			<button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>-->
+
 		    `;
 		$(".step1").html(str);
+		$("#lastPage").click(function(){
+			resultJson.clickCountT=clickCountT;
+			console.log(resultJson);
+			SinglePhase();
+		  });
+		document.getElementById('download').addEventListener('click', function () {
+					$("#submitBtn,#download,#next").prop("hidden",true);
+				    const element = document.querySelector('#main-div');
+
+				    html2canvas(element, { scale: 2 }).then(canvas => {
+				      const imgData = canvas.toDataURL('image/png');
+				      const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+
+				      const pdfWidth = pdf.internal.pageSize.getWidth();
+				      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+				      const imgWidth = pdfWidth;
+				      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+
+				      let heightLeft = imgHeight;
+				      let position = 0;
+
+				      // Add first page
+				      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+				      heightLeft -= pdfHeight;
+
+				      // Add remaining pages
+				      while (heightLeft > 0) {
+				        position = heightLeft - imgHeight;
+				        pdf.addPage();
+				        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+				        heightLeft -= pdfHeight;
+				      }
+
+				      pdf.save("Pressure_Transmitter_Specification.pdf");
+				    });
+				    $("#next").prop("hidden",false);
+				  });
 }

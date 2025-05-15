@@ -1,5 +1,6 @@
 function SinglePhase()
 {
+	$("#result").prop("hidden",false);
 	let str=`
 	<div class="container mt-4 step1" >
 <!--	<h3><center style="margin-bottom:10px;">230V single phase 0.2 ~ 2.2kW</center></h3>-->
@@ -10,7 +11,10 @@ function SinglePhase()
 	`;
 	$("#main-div").html(str);
 	
-	
+	$("#result").click(function(){
+				
+				result();
+			  });
 	function generatePDF() {
 	    // Select the div by its ID
 	    const element = document.querySelector(".step1");
