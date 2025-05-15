@@ -13,8 +13,21 @@
     
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/style.css">
-	    
+	 <link rel="stylesheet" href="css/result.css">   
     <style>
+	@font-face{
+ font-family:'digital-clock-font';
+ src: url('Font/digital-7.ttf');
+}
+	.titlePart { 
+	background: #343a40;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+	}
+	
     @keyframes blinker {
   50% {
     opacity: 0;
@@ -37,8 +50,15 @@
 	    <span id="colgName">COEP TECHNOLOGICAL UNIVERSITY PUNE</span>	
 			
 	</header>
-
-
+<div  class="row container-fluid" id="buttonDiv" >	
+		<div  class="col-sm-12" > 
+ 			<h5 id="counter" class=" btn1 timerStyle"  hidden>00:00:00</h5> 
+<!-- 		 <button type="button" id="tagDetails" class="btn btn-danger btn1" data-toggle="modal" data-target="#proStr"><b>Tag Details </b></button> -->
+<!-- 	     <button type="button" id="simDemo" class="btn btn-danger btn1" data-toggle="modal" data-target="#proStr"><b>Problem statement</b> </button> -->
+		    <button type="button" id="result" class="btn btn-danger btn1 button1" style="background-color:teal" hidden><b>Result </b></button>
+		    <button type="button" class="btn btn-danger btn1 button1"  id="report" style="margin-top:10px;background-color:teal"   hidden>Download Report </button> 
+	     </div>
+</div>
 <div class="container-fluid" style="margin-top:5px;margin-bottom:70px" id="main-div">
  <div class="row justify-content-center" style="margin-bottom:0px;">
             <div class="col-md-8 instruction-box">
@@ -55,7 +75,7 @@
     font-size: 18px;
     word-spacing: 1px;">"You are working in a consultant's firm as 'Instrumentation & Control' engineer. 
                 As a part of pre-engineering documentation, you are required to create documents like instrument index sheet, 
-                specification sheet, hook-up diagram etc. Develop an Instrument Index sheet for the plant you have selected."</span>
+                specification sheet, hook-up diagram etc. Develop an specification sheet for the plant you have selected."</span>
             </div>
         </div>
  <div class="row justify-content-center">
@@ -63,7 +83,7 @@
                 <div class="card p-3">
                     <h5 class="text-center">SPRAY DRYER PLANT</h5>
                     <img src="images/realplant.png" class="img-fluid rounded">
-                     <button class="btn btn-success " id="specifaction1" style="float:right;margin: 10px;background-color:teal;" >SPRAY DRYER</button>
+                     <button class="btn btn-success " id="specifaction1" style="float:right;margin: 10px;background-color:teal;" >CLICK HERE TO START</button>
                 </div>
             </div>
             
@@ -94,17 +114,32 @@ Copyrights &copy; COEP - Virtual Labs
 <script src="js/Transmiter.js"></script>
 <script src="js/SinglePhase.js"></script>
 <script src="js/correctTransmitter.js"></script>
-
-
+<script src="js/result.js"></script>
+<script src="js/timer.js"></script>
 <script>
-$("#specifaction1").click(function ()  {
+$("#specifaction1").click(function ()  { 
 // 	console.log("dfgdfkjglkjgf");
    functionCall();
-//	correctPressure();
-//  	transmitter();
+// 	correctPressure();
+//   	transmitter();
 //  	correctTransmitter();
 //  	SinglePhase();
 });
+//$('#report').on('click', function() {
+	<!--			$('#report').prop("hidden",true);-->
+//			    html2canvas(document.querySelector("#main-div")).then(canvas => {
+			        // Append the screenshot canvas to the body
+//			        document.body.appendChild(canvas);
+//			        $("canvas").css("display","none");
+			        // Optionally save the screenshot as an image
+//			        var link = document.createElement('a');
+//			        link.download = 'Report.png';
+//			        link.href = canvas.toDataURL();
+//			        link.click();
+//			    });
+//			});
+
+
 </script>
 
 </html>

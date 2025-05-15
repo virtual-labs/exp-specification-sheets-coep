@@ -276,6 +276,47 @@ Type of transmitter i.e., gauge pressure or absolute pressure shall be as per sp
         </div>
         
     </div>
+	<button class="btn btn-success " id="lastPage"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" >NEXT</button>
+	<button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
+
 		    `;
 		$(".step1").html(str);
+		$("#lastPage").click(function(){
+					resultJson.clickCountT=clickCountT;
+					console.log(resultJson);
+					SinglePhase();
+				  });
+				document.getElementById('download').addEventListener('click', function () {
+							$("#submitBtn,#download,#next").prop("hidden",true);
+						    const element = document.querySelector('#main-div');
+
+						    html2canvas(element, { scale: 2 }).then(canvas => {
+						      const imgData = canvas.toDataURL('image/png');
+						      const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+
+						      const pdfWidth = pdf.internal.pageSize.getWidth();
+						      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+						      const imgWidth = pdfWidth;
+						      const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+
+						      let heightLeft = imgHeight;
+						      let position = 0;
+
+						      // Add first page
+						      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+						      heightLeft -= pdfHeight;
+
+						      // Add remaining pages
+						      while (heightLeft > 0) {
+						        position = heightLeft - imgHeight;
+						        pdf.addPage();
+						        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+						        heightLeft -= pdfHeight;
+						      }
+
+						      pdf.save("Pressure_Transmitter_Specification.pdf");
+						    });
+						    $("#next").prop("hidden",false);
+						  });
 }

@@ -1,5 +1,7 @@
-
+var ClickCount=0;
 let attempts = 0;
+resultJson={};
+timerMasterJson={};
 const maxAttempts = 3;
 const validKeyNumbers = ["PSHH_1", "PSHH_2", "PSLL_1", "PSLL_2"];
 const correctValues = {
@@ -16,10 +18,10 @@ const correctValues = {
 
 function functionCall()  {
 		
-		
+$("#counter").prop("hidden",false);
 let tags = ["LSL_1", "LSH_1", "PSHH_1", "PSLL_1", "TSHH_1", "PSLL_2", "PSHH_2"];
 
-var services = ["water", "Steam", "Process Liquid"];
+var services = ["Water", "Steam", "Process Liquid"];
 var mounting=["Bottom","Top"];
 var quntity=["4","5","6","7"]; 
 var enclosure=[ "IP65","IP67","IP68"];
@@ -99,9 +101,9 @@ let str=`
                 <td>
                 <select name="OperPressure" id="Operpressure" class="form-select" style="margin-bottom:10px">
                   <option value="0">-----------------Select oper Pressure----------------</option>
-				  <option value="1">0.1 Kg /cm²(g)</option>
-				  <option value="2">0.20 Kg /cm²(g)</option>
-				  <option value="3">3.0 Kg /cm²(g)</option>
+				  <option value="1">0.1 Kg /cm&sup2;(g)</option>
+				  <option value="2">0.20 Kg /cm&sup2;(g)</option>
+				  <option value="3">3.0 Kg /cm&sup2;(g)</option>
 				</select>
 				  <select name="OperTemperature" id="OperTemperature" class="form-select">
                   <option value="0">----------------Select oper Temperature---------------</option>
@@ -118,9 +120,9 @@ let str=`
                 <td>
                  <select name="designPressure" id="designPressure" class="form-select"  style="margin-bottom:10px">
                   <option value="0">----------------Select Design Pressure----------------</option>
-				  <option value="1">0.15 Kg/cm²(g)</option>
-				  <option value="2">0.40 Kg/cm²(g)</option>
-				  <option value="3">0.6 Kg/cm²(g)</option>
+				  <option value="1">0.15 Kg/cm&sup2;(g)</option>
+				  <option value="2">0.40 Kg/cm&sup2;(g)</option>
+				  <option value="3">0.6 Kg/cm&sup2;(g)</option>
 				</select>
               
                 <select name="designTemperature" id="designTemperature" class="form-select">
@@ -159,7 +161,7 @@ let str=`
                 <td> 
                 <select id="processConnection" class="form-select">
 				<option value="0">-----------------Select Process Connection----------------</option>
-				  <option value="1"> ½” NPT(F)</option>
+				  <option value="1"> 1/2 Inch NPT(F)</option>
 				  <option value="2"> Weld neck</option>
 				  <option value="3"> Special food grade connector</option>
 				</select>
@@ -179,9 +181,9 @@ let str=`
                 <td>
                 <select id="PressureRating" class="form-select">
                 <option value="0">------------------Select Pressure Rating----------------</option>
-				  <option value="1">8.0 Kg/cm²(g)</option>
-				  <option value="2">1.0 Kg/cm²(g)</option>
-				   <option value="3">1.2 Kg/cm²(g)</option>
+				  <option value="1">8.0 Kg/cm&sup2;(g)</option>
+				  <option value="2">1.0 Kg/cm&sup2;(g)</option>
+				   <option value="3">1.2 Kg/cm&sup2;(g)</option>
 				</select>
                
                 </td></tr>
@@ -201,20 +203,20 @@ let str=`
                 <tr><td>24</td><td>On Measurement Increase Switch</td><td>
                  <select id="increaseSwitch" class="form-select">
                 <option value="0">------------------Select on measurement increase switch------------------</option>
-				  <option value="1">  Closes</option>
+				  <option value="1">Closes</option>
 				  <option value="2">Opens</option>
 				  
 				</select>
              </td></tr>
-                <tr><td>25</td><td>Set Point 1</td><td>0.4 Kg/cm²(g)</td></tr>
-                <tr><td>26</td><td>Instrument Range</td><td>0.1 to 1 Kg/cm²</td></tr>
-                <tr><td>27</td><td>Conduit Connection Size</td><td>½” NPT (F)</td></tr>
+                <tr><td>25</td><td>Set Point 1</td><td>0.4 Kg/cm&sup2;(g)</td></tr>
+                <tr><td>26</td><td>Instrument Range</td><td>0.1 to 1 Kg/cm&sup2;</td></tr>
+                <tr><td>27</td><td>Conduit Connection Size</td><td>1/2 Inch NPT (F)</td></tr>
                 <tr><td>28</td><td>Output Signal</td><td>Potential free</td></tr>
                 <tr><td>29</td><td>Deadband</td><td>Minimum</td></tr>
                 <tr><td>30</td><td>Housing Material</td><td>Aluminum</td></tr>
                 
                 <tr><td rowspan="8"><b>DIAPHRAGM SEAL</b></td><td>31</td><td>Required</td><td>YES</td></tr>
-                <tr><td>32</td><td>Process Connection Size</td><td>½” NPT (F)</td></tr>
+                <tr><td>32</td><td>Process Connection Size</td><td>1/2 Inch NPT (F)</td></tr>
                 <tr><td>33</td><td>Diaphragm Material</td><td>SS 316</td></tr>
                 <tr><td>34</td><td>Housing Material</td><td>SS 316</td></tr>
                 <tr><td>35</td><td>Fill Liquid</td><td>Not required</td></tr>
@@ -257,7 +259,7 @@ let str=`
                  <tr><td>48</td><td >Serial Number</td><td>Later*</td></tr>
             </tbody>
         </table>
-         <button class="btn btn-success " id="submitBtn"  data-bs-toggle="modal" data-bs-target="#myModal" >VERIFY</button>
+         <button class="btn btn-success " id="submitBtn"  data-bs-toggle="modal" data-bs-target="#myModal"  >VERIFY</button>
          <br>
           
           
@@ -298,7 +300,7 @@ let str=`
             <h5>Notes:</h5>
             <ol>
                 <li>Instrument tags shall be permanently attached to the device OR the tags shall be fastened to the instrument with stainless steel wire.</li>
-                <li>The size of wired instrument tag shall be ¾ inch X 3 inch, stainless steel instrument tags. The tag thickness shall be 1/16 Inch and stamped with instrument tag number. Tag number characters shall be 3/8 inch in height.</li>
+                <li>The size of wired instrument tag shall be 3/4 inch X 3 inch, stainless steel instrument tags. The tag thickness shall be 1/16 Inch and stamped with instrument tag number. Tag number characters shall be 3/8 inch in height.</li>
                 <li>Over range protection shall be 150% of maximum pressure range.</li>
                 <li>Instrument mounting accessories like Mounting bracket and accessories shall be supplied.</li>
                 <li>Non indicating type field mounted Pressure Switches shall be of aluminium casing (epoxy coated).</li>
@@ -317,11 +319,13 @@ let str=`
         
     </div>
       <div class="container rev1 step2" style="margin-top: 40px;" hidden>
+	  <div class="row">
+	  <div class="col-sm-12">
         <table >
             <tr>
                 <th>Prep</th>
-                <th>54</th>
-                <th>Apr</th>
+                <th>checked by</th>
+                <th>Approved by</th>
                 <th>Rev/Date</th>
                 <th >Revision History</th>
                 <th rowspan="4">INSTRUMENT SPECIFICATION<br>(Pressure Switch)</th>
@@ -349,10 +353,12 @@ let str=`
             </tr>
             
         </table>
-            <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" disabled>NEXT</button>
-      <button class="btn btn-success " id="download" style="margin-right:10px" disabled>PDF DOWNLOAD</button>
+            <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" >NEXT</button>
+      <button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
       <button class="btn btn-success " id="submitBtn1"  data-bs-toggle="modal" data-bs-target="#myModal1" style="float: right; margin-right: 15px;margin-top: 10px; background-color: teal;">VERIFY</button>
-        <!-- The Modal -->
+      </div> 
+	  </div> 
+	   <!-- The Modal -->
 	<div class="modal" id="myModal1">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -386,12 +392,15 @@ let str=`
     `;
 $("#main-div").html(str);
 $("#next").click(function(){
+	resultJson.ClickCount=ClickCount;
+	console.log(resultJson);
 	transmitter();
   });
 
 var id=0;
 $('#submitBtn').click(function(){
 	  
+	ClickCount++;
 	  $("#modalBody").css("color", "brown");
 	
 	   
@@ -523,7 +532,7 @@ $('#submitBtn1').click(function () {
   } else {
 	  $('#submitBtn,#submitBtn1').prop("disabled", true);
 	  $('#download').prop("disabled", false);
-    $('#modalBody1').html("All fields are filled. You may proceed.").css("color", "green");
+    $('#modalBody1').html("All fields are filled. download pdf then go to next level.").css("color", "green");
     attemptCount = 0; // reset if successful
   }
 });
