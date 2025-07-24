@@ -63,19 +63,6 @@
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
-  
-  {
-      "question": "What is the purpose of specifying the instrument's environmental requirements in a specification sheet?",
-      "answers": {
-        "a": "To ensure the instrument is compatible with the control system",
-        "b": "To determine the instrument's range",
-        "c": "To specify the instrument's output signal",
-        "d": "To ensure the instrument operates correctly and safely in the process environment"
-      },
-     
-      "correctAnswer": "d",
-      "difficulty": "beginner"
-    },
 	
 	{
       "question": "Which of the following is a consideration when selecting an instrument for a process plant application?",
@@ -90,11 +77,5 @@
       "difficulty": "beginner"
     }
 	
-	
-  
-  
-  
-  
-  
   ]
 }
