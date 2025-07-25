@@ -338,19 +338,13 @@ let str=`
                <td>Initial submission</td>
             </tr>
              <tr>
-               <td><input type="text" id="nameInput5" placeholder=""></td>
-               <td><input type="text" id="nameInput6" placeholder=""></td>
-               <td><input type="text" id="nameInput7" placeholder=""></td>
-               <td><input type="text" id="nameInput8" placeholder=""></td>
-               <td><input type="text" id="nameInput9" placeholder=""></td>
+               <td><label id="nameInput5" placeholder=""></td>
+               <td><label id="nameInput6" placeholder=""></td>
+               <td><label id="nameInput7" placeholder=""></td>
+               <td><label id="nameInput8" placeholder=""></td>
+               <td><label id="nameInput9" placeholder=""></td>
             </tr>
-             <tr>
-               <td><input type="text" id="nameInput10" placeholder=""></td>
-               <td><input type="text" id="nameInput11" placeholder=""></td>
-               <td><input type="text" id="nameInput12" placeholder=""></td>
-               <td><input type="text" id="nameInput13" placeholder=""></td>
-               <td><input type="text" id="nameInput14" placeholder=""></td>
-            </tr>
+            
             
         </table>
             <button class="btn btn-success " id="next"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" >NEXT</button>
