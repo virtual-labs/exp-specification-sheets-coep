@@ -4,7 +4,7 @@ function SinglePhase()
 	let str=`
 	<div class="container mt-4 step1" >
 <!--	<h3><center style="margin-bottom:10px;">230V single phase 0.2 ~ 2.2kW</center></h3>-->
-	<img src="images/230V_single_phase.jpg" class="img-fluid" style="width:100%;">
+	<img src="images/230V_single_phase.jpg" class="img-fluid" style="width:80%;">
 	
 	</div>
 	<!--<button class="btn btn-success " id="pdfDownload" style="margin-right:10px" >PDF DOWNLOAD</button>-->
