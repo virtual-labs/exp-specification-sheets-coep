@@ -276,9 +276,10 @@ Type of transmitter i.e., gauge pressure or absolute pressure shall be as per sp
         </div>
         
     </div>
-	<button class="btn btn-success " id="lastPage"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px" >NEXT</button>
+	<div style="padding-bottom : 25px;"> 
+	<button class="btn btn-success " id="lastPage"  style="float: right; margin-top: 10px; background-color: teal;margin-right:10px; margin-bottom:15px;" >NEXT</button>
 	<button class="btn btn-success " id="download" style="margin-right:10px" >PDF DOWNLOAD</button>
-
+	</div>
 		    `;
 		$(".step1").html(str);
 		$("#lastPage").click(function(){

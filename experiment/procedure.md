@@ -1,7 +1,7 @@
 ## Procedure
 
  The steps required to prepare a specification sheet for an instrument. Before you start preparing the specification sheet you need to review once again
- P&I diagram and instrument index sheet. These documents are basis for the development of specification sheet and referring latest version will be mandatory. 
+ P&I Diagram and instrument index sheet. These documents are basis for the development of specification sheet and referring latest version will be mandatory. 
  Please see the document control box on the P&I sheet and check its version before starting the work. 
  
 ### Step1 : 
