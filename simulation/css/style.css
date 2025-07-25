@@ -1,0 +1,97 @@
+.card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .instruction-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+  table {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+        }
+        .modalHeader{
+            background-color: teal;
+    color: #fff;
+        } 
+        #modalBody{
+          
+    font-size: 20px;
+   font-weight: bold;
+    font-size: larger;
+        }
+        #nameInput1,#nameInput2,#nameInput3,#nameInput4,#nameInput5,
+        #nameInput6,#nameInput7,#nameInput8,#nameInput9,#nameInput10,
+        #nameInput11,#nameInput12, #nameInput13,#nameInput14{
+            border: none;
+    border-bottom: 1px solid #dee2e6;
+    outline: none;
+    padding: 5px 0;
+    width: 200px;
+    font-size: 16px;
+        }
+        
+        
+#submitBtn{
+	float:right;
+	margin-top:10px;
+	margin-bottom: 100px;
+	background-color:teal;
+}
+#download{
+	    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #821515;
+    border-color: #821515;
+}
+
+.timerStyle{
+	       background-color: #42494f;
+    color: #e8ac6e;
+    font-weight: 700;
+    font-family: 'digital-clock-font';
+    letter-spacing: 1px;
+    
+	
+}
+.btn1 {
+        margin-left:10px;
+        margin-right: 10px;
+        margin-top:7px;
+        float:right;
+        margin-bottom:10px;
+        padding: 7px; 
+        border:none; 
+        border-radius: 5px;
+        }
+ footer {
+	background: rgb(125,176,169);
+background: linear-gradient(90deg, rgba(125,176,169,1) 0%, rgba(78,109,114,1) 31%, rgba(33,44,62,1) 100%);
+	padding: 2px 10px;
+	border-top: 5px solid #2a333c;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+}
